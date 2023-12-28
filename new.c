@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
     char key = '!';
     for ( i = 0; i < sizeof(shellcode)-1; i++)
     {
-        printf("//%02x", shellcode[i]^key);
+        printf("//x%02x", shellcode[i]^key);
     }
     
        if (argc <2)
