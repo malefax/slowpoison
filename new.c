@@ -7,6 +7,13 @@ int main(int argc, char* argv[]){
     HANDLE hprocess,hthread=NULL;
     LPVOID base =NULL;
     unsigned char shellcode[] = "\x41\x41\x41\x41\x41\x41";
+    int i;
+    char key = '!';
+    for ( i = 0; i < sizeof(shellcode)-1; i++)
+    {
+        printf("//%02x", shellcode[i]^key);
+    }
+    
        if (argc <2)
     {
         printf("need at least 2 arguments:\t%s\n",argv[0]);
