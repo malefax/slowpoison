@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
-        "DECRYPT.C": "cpp"
+        "DECRYPT.C": "cpp",
+        "aes.h": "c"
     }
 }
